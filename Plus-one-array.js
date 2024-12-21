@@ -50,3 +50,14 @@ function upArray(arr) {
 }
 
 // or
+
+function upArray(arr){
+  if(arr.find((num)=>num>9||num<0)||arr.length===0){return null}
+  const arrAsString = arr.join("");
+  const keepZeros = arrAsString.match(/^0*/);
+  const initialNumber = BigInt(arrAsString);
+  const newNumber = initialNumber+BigInt(1);
+  const backToString = keepZeros? keepZeros + newNumber.toString():newNumber.toString();
+  const result = backToString.split("").map(Number);
+  return result
+}
